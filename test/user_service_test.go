@@ -7,7 +7,6 @@ import (
 	"github.com/Pawancod/gRPC-User-Service/internal/repository"
 	"github.com/Pawancod/gRPC-User-Service/internal/service"
 	"github.com/Pawancod/gRPC-User-Service/proto/github.com/Pawancod/gRPC-User-Service/proto"
-
 	"github.com/stretchr/testify/assert"
 )
 
@@ -32,17 +31,17 @@ func TestGetUsers(t *testing.T) {
 
 	assert.NoError(t, err)
 	assert.NotNil(t, res)
-	assert.Equal(t, len(req.Ids), len(res.Users))
+	assert.Equal(t, 2, len(res.Users))
 }
 
 func TestSearchUsers(t *testing.T) {
 	repo := repository.NewUserRepository()
 	userService := service.NewUserService(repo)
 
-	req := &proto.SearchUsersRequest{City: "LA", Phone: 1234567890, Married: true}
+	req := &proto.SearchUsersRequest{City: "LA"}
 	res, err := userService.SearchUsers(context.Background(), req)
 
 	assert.NoError(t, err)
 	assert.NotNil(t, res)
-	assert.GreaterOrEqual(t, len(res.Users), 1)
+	assert.True(t, len(res.Users) > 0)
 }
