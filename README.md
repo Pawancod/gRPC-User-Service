@@ -39,8 +39,8 @@ Before you begin, ensure you have the following installed:
 ## Deployment with Docker
 
 ### Build Docker Image
-    1. docker build -t grpc-user-service .
-    2. docker run -p 50051:50051 grpc-user-service
+    1. docker build -t gRPC-User-Service.
+    2. docker run -p 50051:50051 gRPC-User-Service.
 #### The gRPC server inside the Docker container will be accessible on localhost:50051.
 
 
