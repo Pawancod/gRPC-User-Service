@@ -14,14 +14,14 @@ Before you begin, ensure you have the following installed:
 
 ### Clone the repository:
 
-    1.git clone https://github.com/yourusername/grpc-user-service.git
-    2.cd grpc-user-service
+    1.git clone https://github.com/Pawancod/gRPC-User-Service.git
+    2.cd gRPC-User-Service
 
 ### Install dependencies:
     1.go mod download
 
 ### Running Locally
-    1.go build -o grpc-user-service ./cmd/server
+    1.go build -o gRPC-User-Service ./cmd/main.go
     2./grpc-user-service
 
 #### The gRPC server should now be running on localhost:50051.
@@ -29,6 +29,8 @@ Before you begin, ensure you have the following installed:
 ### Access gRPC Service Endpoints
     1.grpcurl -plaintext localhost:50051 list
     2.grpcurl -plaintext -d '{"user_id": "123"}' localhost:50051 your.package.YourService/YourMethod
+### OR(if grpccurl didnt work) 
+    1.go run main.go(prompt for query, for examples for getting by id or search users by city)
 
 #### Configuration
     1.Configuration can be adjusted via environment variables or a configuration file (config.yaml).(optional-can be dobe later)
